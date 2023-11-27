@@ -6,5 +6,8 @@ export const EndPoints = {
     base() {
       return `${BASE_API}/admins`;
     },
+    login() {
+      return `${BASE_API}/admins/login`;
+    },
   },
 };
