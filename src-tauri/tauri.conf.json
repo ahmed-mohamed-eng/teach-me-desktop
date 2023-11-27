@@ -12,7 +12,7 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": true
     },
     "bundle": {
       "active": true,
@@ -57,6 +57,11 @@
       {
         "fullscreen": false,
         "height": 600,
+        "alwaysOnTop": true,
+        "center": true,
+        "maximized": true,
+        "minimizable": true,
+        "closable": true,
         "resizable": true,
         "title": "Teach Me Desktop",
         "width": 800
