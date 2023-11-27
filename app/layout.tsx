@@ -1,5 +1,7 @@
-import Head from "next/head";
 import "./globals.css";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function RootLayout({
   children,
@@ -8,11 +10,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-      </Head>
       <body className="w-screen max-w-screen h-screen min-h-screen overflow-hidden">
         {children}
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </body>
     </html>
   );
