@@ -10,7 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="w-screen max-w-screen h-screen min-h-screen overflow-hidden">
+      <body className="w-screen max-w-screen h-screen min-h-screen overflow-x-hidden">
         {children}
         <ToastContainer
           position="bottom-center"
