@@ -12,5 +12,8 @@ export const EndPoints = {
     getOne(id: string) {
       return `${BASE_API}/admins/one/${id}`;
     },
+    getStat(id: string) {
+      return `${BASE_API}/admins/stat/${id}`;
+    },
   },
 };
