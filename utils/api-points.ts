@@ -9,5 +9,8 @@ export const EndPoints = {
     login() {
       return `${BASE_API}/admins/login`;
     },
+    getOne(id: string) {
+      return `${BASE_API}/admins/one/${id}`;
+    },
   },
 };

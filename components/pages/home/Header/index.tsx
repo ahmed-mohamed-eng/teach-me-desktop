@@ -1,7 +1,19 @@
+"use client";
+
+import { useEffect } from "react";
+
 import SideMenu from "./SideMenu";
+
+import { getAdminInfo } from "@/utils/crud/admins/get-admin";
 
 /* eslint-disable @next/next/no-img-element */
 const Header = () => {
+  useEffect(() => {
+    if (localStorage && !localStorage.getItem("adminInfo")) {
+      getAdminInfo();
+    }
+  }, []);
+
   return (
     <header className="w-full bg-white p-2 rounded-lg flex items-center justify-between">
       <section className="flex-1 flex items-center justify-start space-x-3">
