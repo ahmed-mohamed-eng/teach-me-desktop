@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Header from "@/components/pages/home/Header";
 
 export default function Home() {
   const router = useRouter();
@@ -13,10 +14,8 @@ export default function Home() {
   }, [router]);
 
   return (
-    <main className="w-full bg-orange-500 flex min-h-screen flex-col items-center justify-start py-10 px-24">
-      <h1 className="text-5xl text-white font-semibold font-cairo mb-7">
-        Welcome &#x1F601;
-      </h1>
+    <main className="w-full bg-orange-500 flex min-h-screen flex-col items-start justify-start p-5">
+      <Header />
     </main>
   );
 }
