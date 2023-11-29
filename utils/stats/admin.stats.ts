@@ -4,7 +4,7 @@ import { EndPoints } from "../api-points";
 
 export interface AdminStatics {
   month: MonthsNamesEnum;
-  teachersNumber: number;
+  adminsNumber: number;
 }
 
 export async function getAdminStats() {

@@ -13,7 +13,7 @@ export const EndPoints = {
       return `${BASE_API}/admins/one/${id}`;
     },
     getStat(id: string) {
-      return `${BASE_API}/admins/stat/${id}`;
+      return `${BASE_API}/admins/stats/${id}`;
     },
   },
 };
