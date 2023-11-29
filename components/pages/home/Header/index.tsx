@@ -6,8 +6,12 @@ import SideMenu from "./SideMenu";
 
 import { getAdminInfo } from "@/utils/crud/admins/get-admin";
 
+export interface HeaderProps {
+    title?: string;
+}
+
 /* eslint-disable @next/next/no-img-element */
-const Header = () => {
+const Header = (props: HeaderProps) => {
   useEffect(() => {
     if (localStorage && !localStorage.getItem("adminInfo")) {
       getAdminInfo();
