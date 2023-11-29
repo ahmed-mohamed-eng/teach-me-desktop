@@ -15,5 +15,8 @@ export const EndPoints = {
     getStat(id: string) {
       return `${BASE_API}/admins/stats/${id}`;
     },
+    update(id: string) {
+      return `${BASE_API}/admins/${id}`;
+    }
   },
 };

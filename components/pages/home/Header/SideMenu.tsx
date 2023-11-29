@@ -55,6 +55,14 @@ const SideMenu = () => {
           </button>
         </div>
         <ul className="w-full flex flex-col items-start justify-start space-y-3">
+        <li className="w-full">
+            <Link
+              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              href="/"
+            >
+              Home
+            </Link>
+          </li>
           <li className="w-full">
             <Link
               className="block w-full text-center text-blue-500 font-semibold text-xl"

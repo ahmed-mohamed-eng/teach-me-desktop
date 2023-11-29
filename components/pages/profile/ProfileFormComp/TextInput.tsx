@@ -1,0 +1,49 @@
+import { HTMLInputTypeAttribute, useRef } from "react";
+
+import { RegisterOptions, UseFormRegister } from "react-hook-form";
+
+import { ErrorMessage } from "@hookform/error-message";
+
+import { AdminInfo } from ".";
+
+export interface TextInputProps {
+  title: string;
+  htmlName: keyof AdminInfo;
+  type?: HTMLInputTypeAttribute;
+  registerFunc: UseFormRegister<AdminInfo>;
+  registerOptions?: RegisterOptions;
+  errors?: any;
+  accept?: string;
+  defaultValue?: string | number;
+  autocomplete?: string;
+}
+
+const TextInput = (props: TextInputProps) => {
+  return (
+    <div className="w-full p-3 flex flex-col items-start justify-start space-y-3">
+      <label htmlFor={props.htmlName} className="text-2xl font-cairo ">
+        {props.title}
+        {props.registerOptions?.required ? (
+          <span className="text-red-600">*</span>
+        ) : null}
+      </label>
+      <input
+        className="w-full border border-black p-3 text-lg rounded-md"
+        type={props.type}
+        accept={props.accept}
+        autoComplete={props.autocomplete}
+        autoCorrect="off"
+        spellCheck="false"
+        defaultValue={props.defaultValue}
+        {...props.registerFunc(props.htmlName, props.registerOptions)}
+      />
+      <ErrorMessage
+        errors={props.errors}
+        name={props.htmlName}
+        render={({ message }) => <p>{message}</p>}
+      />
+    </div>
+  );
+};
+
+export default TextInput;
