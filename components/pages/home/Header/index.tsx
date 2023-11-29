@@ -30,7 +30,7 @@ const Header = (props: HeaderProps) => {
         </div>
         <h1 className="font-bold text-xl">Teach Me.Inc</h1>
       </section>
-      <p className="flex-1 text-2xl font-cairo font-black">Home Page</p>
+      <p className="flex-1 text-2xl font-cairo font-black">{props.title || "Home Page"}</p>
       <SideMenu />
     </header>
   );
