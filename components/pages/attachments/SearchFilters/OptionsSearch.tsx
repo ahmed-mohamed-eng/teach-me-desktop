@@ -8,7 +8,7 @@ const OptionsSearch = (props: OptionsSearchProps) => {
   return (
     <div className="h-10">
       <select
-        className="w-64 h-full p-1 bg-white"
+        className="w-56 h-full p-1 bg-white border border-black rounded-md"
         name={props.htmlName}
         id={`select-${props.htmlName}`}
       >
