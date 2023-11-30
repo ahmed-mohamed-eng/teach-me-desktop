@@ -6,7 +6,7 @@ export interface OptionsSearchProps {
 
 const OptionsSearch = (props: OptionsSearchProps) => {
   return (
-    <div className="h-10">
+    <div className="h-10 border border-black">
       <select
         className="w-64 h-full p-1 bg-white"
         name={props.htmlName}
