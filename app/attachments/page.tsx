@@ -12,7 +12,7 @@ const CentersPage = () => {
       <Header title="Attachments Page" />
       <SearchFilters />
       <CentersShowCards />
-      <FloatingCreateButton linkTo="/centers/create" />
+      <FloatingCreateButton linkTo="/attachments/create" />
       <PaginationComp />
     </main>
   );

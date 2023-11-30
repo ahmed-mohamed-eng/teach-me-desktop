@@ -12,7 +12,7 @@ const CentersPage = () => {
       <Header title="Admins Page" />
       <SearchFilters />
       <CentersShowCards />
-      <FloatingCreateButton linkTo="/centers/create" />
+      <FloatingCreateButton linkTo="/admins/create" />
       <PaginationComp />
     </main>
   );
