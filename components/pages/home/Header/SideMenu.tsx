@@ -82,7 +82,7 @@ const SideMenu = () => {
           <li className="w-full">
             <Link
               className="block w-full text-center text-blue-500 font-semibold text-xl"
-              href="/centers"
+              href="/sessions"
             >
               Sessions
             </Link>
@@ -90,7 +90,7 @@ const SideMenu = () => {
           <li className="w-full">
             <Link
               className="block w-full text-center text-blue-500 font-semibold text-xl"
-              href="/centers"
+              href="/halls"
             >
               Halls
             </Link>
