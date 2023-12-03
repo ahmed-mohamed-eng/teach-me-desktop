@@ -17,6 +17,11 @@ export const EndPoints = {
     },
     update(id: string) {
       return `${BASE_API}/admins/${id}`;
-    }
+    },
+  },
+  center: {
+    base() {
+      return `${BASE_API}/centers`;
+    },
   },
 };

@@ -1,9 +1,13 @@
-import React from 'react'
+import Header from "@/components/pages/home/Header";
+import CreateNewCenter from "@/components/pages/centers/CreateNewCenter";
 
 const CreatePage = () => {
   return (
-    <div>CreatePage</div>
-  )
-}
+    <main className="w-full bg-orange-500 flex min-h-screen flex-col items-start justify-start p-5 space-y-5">
+      <Header title="Create New Center" />
+      <CreateNewCenter />
+    </main>
+  );
+};
 
 export default CreatePage;
