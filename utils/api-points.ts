@@ -23,5 +23,8 @@ export const EndPoints = {
     base() {
       return `${BASE_API}/centers`;
     },
+    count() {
+      return `${BASE_API}/centers/count`;
+    },
   },
 };
