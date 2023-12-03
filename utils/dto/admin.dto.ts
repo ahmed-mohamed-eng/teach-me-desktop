@@ -2,6 +2,7 @@ import { AdminType } from "../enums/admin-type.enum";
 
 export interface CreateAdminDto {
   id?: string;
+  _id?: string;
   name: string;
   email: string;
   adminType: AdminType;

@@ -23,6 +23,9 @@ export const EndPoints = {
     base() {
       return `${BASE_API}/centers`;
     },
+    getPage(page: number) {
+      return `${BASE_API}/centers/${page}`;
+    },
     count() {
       return `${BASE_API}/centers/count`;
     },
