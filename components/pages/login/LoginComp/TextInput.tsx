@@ -26,7 +26,7 @@ const TextInput = (props: TextInputProps) => {
       <input
         className="w-full border border-black p-3 text-lg rounded-md"
         type={props.type}
-        {...props.registerFunc(props.htmlName, props.registerOptions)}
+        {...props.registerFunc(props.htmlName)}
       />
       <ErrorMessage
         errors={props.errors}

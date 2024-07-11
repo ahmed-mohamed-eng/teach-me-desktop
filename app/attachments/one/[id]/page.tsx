@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const OnePage = () => {
-  return (
-    <div>OnePage</div>
-  )
+export async function generateStaticParams() {
+  return {
+    paths: [],
+  };
 }
 
-export default OnePage
+const OnePage = () => {
+  return <div>OnePage</div>;
+};
+
+export default OnePage;

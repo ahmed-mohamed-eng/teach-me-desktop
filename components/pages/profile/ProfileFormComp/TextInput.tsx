@@ -35,7 +35,7 @@ const TextInput = (props: TextInputProps) => {
         autoCorrect="off"
         spellCheck="false"
         defaultValue={props.defaultValue}
-        {...props.registerFunc(props.htmlName, props.registerOptions)}
+        {...props.registerFunc(props.htmlName)}
       />
       <ErrorMessage
         errors={props.errors}

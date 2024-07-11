@@ -2,10 +2,12 @@
   "name": "teach-me-desktop",
   "version": "0.1.0",
   "private": true,
+  "main": "main/main.js",
   "scripts": {
+    "dev:elect": "concurrently -n \"NEXT,ELECTRON\" -c \"yellow,blue\" --kill-others \"next dev\" \"electron . --no-sandbox\"",
+    "build": "next build && electron-builder",
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "electron . --no-sandbox",
     "lint": "next lint"
   },
   "dependencies": {
@@ -30,6 +32,10 @@
     "@types/uuid": "^10.0.0",
     "@types/validator": "^13.11.7",
     "autoprefixer": "^10.0.1",
+    "concurrently": "^8.2.2",
+    "electron": "^31.2.0",
+    "electron-builder": "^24.13.3",
+    "electron-serve": "^2.0.0",
     "eslint": "^9.6.0",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
