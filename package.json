@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "tauri": "tauri",
-    "tauri:dev": "tauri dev"
+    "lint": "next lint"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
@@ -25,7 +23,6 @@
     "validator": "^13.11.0"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1.5.6",
     "@types/luxon": "^3.3.6",
     "@types/node": "^20",
     "@types/react": "^18",
