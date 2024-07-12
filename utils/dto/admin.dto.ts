@@ -15,5 +15,7 @@ export interface CreateAdminDto {
   tokens?: string[];
   avatarPath?: string;
 
+  permissionsId?: string;
+
   creatorAdminID?: string;
 }

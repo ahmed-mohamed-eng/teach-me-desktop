@@ -8,7 +8,7 @@ export interface CentersShowCardsProps {
 
 const CentersShowCards = (props: CentersShowCardsProps) => {
   return (
-    <section className="w-full h-[60rem] p-3 flex flex-col items-start justify-start space-y-3">
+    <section className="w-full p-3 flex flex-col items-start justify-start space-y-3">
       {props?.cardsInfo?.map((card) => (
         <Card key={uuid4()} {...card} />
       ))}
