@@ -9,6 +9,7 @@ import { CreateAdminDto } from "@/utils/dto/admin.dto";
 import { getAdminInfo } from "@/utils/functions/getAdminInfo";
 import { createNewCenter } from "@/utils/crud/centers/create-center";
 import MultiSelectAdmins from "@/components/shared/MultiSelectAdmins";
+import DatePicker from "@/components/shared/DatePicker";
 
 export interface CenterInfo {
   name: string;
@@ -21,6 +22,7 @@ const CreateForm = () => {
   const [location, setLocation] = useState<[number, number]>();
   const [admin, setAdmin] = useState<CreateAdminDto>();
   const [selectAdminsIDs, setSelectAdminsIDs] = useState<string[]>([]);
+  const [selectedDate, setSelectedDate] = useState<string>();
 
   useEffect(() => {
     const adminInfo = getAdminInfo();
@@ -121,6 +123,12 @@ const CreateForm = () => {
         />
 
         <MultiSelectAdmins setIDs={setSelectAdminsIDs} IDs={selectAdminsIDs} />
+
+        <div className="flex flex-col space-y-3">
+          <p className="text-lg">Select Availability Date</p>
+
+          <DatePicker date={selectedDate} onDateChange={setSelectedDate} />
+        </div>
       </div>
       <div className="w-full flex flex-col items-center justify-start space-y-5 pb-5">
         <button
