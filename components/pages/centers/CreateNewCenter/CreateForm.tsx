@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
+import { toast } from "react-toastify";
+
 import TextInput from "./TextInput";
 
 import { CreateAdminDto } from "@/utils/dto/admin.dto";
 import { getAdminInfo } from "@/utils/functions/getAdminInfo";
 import { createNewCenter } from "@/utils/crud/centers/create-center";
-import { toast } from "react-toastify";
+import MultiSelectAdmins from "@/components/shared/MultiSelectAdmins";
 
 export interface CenterInfo {
   name: string;
@@ -18,6 +20,7 @@ export interface CenterInfo {
 const CreateForm = () => {
   const [location, setLocation] = useState<[number, number]>();
   const [admin, setAdmin] = useState<CreateAdminDto>();
+  const [selectAdminsIDs, setSelectAdminsIDs] = useState<string[]>([]);
 
   useEffect(() => {
     const adminInfo = getAdminInfo();
@@ -62,6 +65,13 @@ const CreateForm = () => {
       centerImages: data.images,
       creatorID: admin.id,
       location: [data.locationLat, data.locationLng],
+      adminsIDs: selectAdminsIDs,
+      hallsIDs: [],
+      parentsIDs: [],
+      sessionsIDs: [],
+      studentsIDs: [],
+      teachersIDs: [],
+      attachmentsIDs: [],
     });
   };
 
@@ -109,6 +119,8 @@ const CreateForm = () => {
             maxLength: 200,
           }}
         />
+
+        <MultiSelectAdmins setIDs={setSelectAdminsIDs} IDs={selectAdminsIDs} />
       </div>
       <div className="w-full flex flex-col items-center justify-start space-y-5 pb-5">
         <button
