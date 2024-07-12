@@ -1,23 +1,10 @@
-"use client";
-
-import { useEffect } from "react";
-
 import SideMenu from "./SideMenu";
 
-import { getAdminInfo } from "@/utils/crud/admins/get-admin";
-
 export interface HeaderProps {
-    title?: string;
+  title?: string;
 }
 
-/* eslint-disable @next/next/no-img-element */
 const Header = (props: HeaderProps) => {
-  useEffect(() => {
-    if (localStorage && !localStorage.getItem("adminInfo")) {
-      getAdminInfo();
-    }
-  }, []);
-
   return (
     <header className="w-full bg-white p-2 rounded-lg flex items-center justify-between">
       <section className="flex-1 flex items-center justify-start space-x-3">
@@ -30,7 +17,9 @@ const Header = (props: HeaderProps) => {
         </div>
         <h1 className="font-bold text-xl">Teach Me.Inc</h1>
       </section>
-      <p className="flex-1 text-2xl font-cairo font-black">{props.title || "Home Page"}</p>
+      <p className="flex-1 text-2xl font-cairo font-black">
+        {props.title || "Home Page"}
+      </p>
       <SideMenu />
     </header>
   );
