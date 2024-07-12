@@ -1,13 +1,10 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 import { useRef } from "react";
 
 const SideMenu = () => {
-  const router = useRouter();
   const menuRef = useRef<HTMLDivElement>(null);
   const shadowRef = useRef<HTMLDivElement>(null);
 
@@ -25,12 +22,7 @@ const SideMenu = () => {
     shadowRef.current?.classList.replace("block", "hidden");
   };
 
-  const onLogout = () => {
-    if (localStorage) {
-      localStorage.removeItem("adminToken");
-      if (!localStorage.getItem("adminToken")) router.push("/login");
-    }
-  };
+  const onLogout = () => {};
 
   return (
     <section>
@@ -43,7 +35,7 @@ const SideMenu = () => {
       </div>
       <div
         ref={menuRef}
-        className="transition-all duration-300 absolute top-0 right-0 bg-white border-l-2 border-black h-full overflow-x-hidden w-0 p-0 flex flex-col items-start justify-start space-y-5"
+        className="transition-all duration-300 absolute top-0 right-0 bg-white border-l-2 border-black h-full overflow-x-hidden w-0 p-0 flex flex-col items-start justify-start space-y-8"
       >
         <div className="w-full flex items-center justify-between">
           <h2 className="text-3xl font-cairo font-bold text-start">Menu</h2>
@@ -54,10 +46,10 @@ const SideMenu = () => {
             X
           </button>
         </div>
-        <ul className="w-full flex flex-col items-start justify-start space-y-3">
+        <ul className="w-full flex flex-col items-start justify-start space-y-5 px-4">
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full font-semibold text-xl"
               href="/"
             >
               Home
@@ -65,7 +57,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full font-semibold text-xl"
               href="/profile"
             >
               Profile
@@ -73,7 +65,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full font-semibold text-xl"
               href="/centers"
             >
               Centers
@@ -81,7 +73,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full font-semibold text-xl"
               href="/sessions"
             >
               Sessions
@@ -89,7 +81,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/halls"
             >
               Halls
@@ -97,7 +89,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/attachments"
             >
               Attachments
@@ -105,7 +97,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/admins"
             >
               Admins
@@ -113,7 +105,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/parents"
             >
               Parents
@@ -121,7 +113,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/teachers"
             >
               Teachers
@@ -129,7 +121,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/students"
             >
               Students
@@ -137,7 +129,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/analytics"
             >
               Analytics
@@ -145,7 +137,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/payments"
             >
               Payments
@@ -153,7 +145,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/membership"
             >
               Membership
@@ -161,7 +153,7 @@ const SideMenu = () => {
           </li>
           <li className="w-full">
             <Link
-              className="block w-full text-center text-blue-500 font-semibold text-xl"
+              className="block w-full   font-semibold text-xl"
               href="/settings"
             >
               Settings
