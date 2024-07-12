@@ -1,5 +1,4 @@
 import LoginComp from "@/components/pages/login/LoginComp";
-import RegisterButton from "@/components/pages/login/RegisterButton";
 
 const LoginPage = () => {
   return (
@@ -10,7 +9,6 @@ const LoginPage = () => {
       <section className="p-10 w-full h-full bg-white rounded-xl shadow-xl shadow-gray-900 flex flex-col items-center justify-start space-y-5">
         <h2 className="text-4xl font-cairo font-bold">Login</h2>
         <LoginComp />
-        <RegisterButton />
       </section>
     </main>
   );

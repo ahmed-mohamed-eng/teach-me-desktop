@@ -20,7 +20,7 @@ export default function SignUp() {
       <h1 className="text-5xl text-white font-semibold font-cairo mb-7">
         Welcome to Our System &#x1F601;
       </h1>
-      <section className="p-10 w-full h-full bg-white rounded-xl shadow-xl shadow-gray-900 flex flex-col items-center justify-start space-y-5">
+      <section className="p-10 w-full h-1/3 bg-white rounded-xl shadow-xl shadow-gray-900 flex flex-col items-center justify-start space-y-5">
         <h2 className="text-4xl font-cairo font-bold">Register Now</h2>
         <RegisterComp />
         <LoginButton />

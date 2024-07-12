@@ -7,14 +7,11 @@ import {
   FieldError,
 } from "react-hook-form";
 
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import { toast } from "react-toastify";
 
 import TextInput from "./TextInput";
-
-import { loginToAdmin } from "@/utils/crud/admins/login-admin";
 
 export interface AdminLoginInfo {
   usernameOrEmail: string;
@@ -30,31 +27,7 @@ const RegisterComp = () => {
     formState: { errors },
   } = useForm<AdminLoginInfo>();
 
-  const onLoginAdmin: SubmitHandler<AdminLoginInfo> = async (data) => {
-    try {
-      const loginData = await loginToAdmin({
-        usernameOrEmail: data.usernameOrEmail,
-        password: data.password,
-      });
-
-      if (localStorage && loginData) {
-        localStorage.setItem("adminToken", loginData?.adminAccessToken);
-      }
-
-      if (loginData) {
-        router.push("/");
-      }
-    } catch (error: any) {
-      console.error(error);
-      toast.error(error.message);
-    }
-  };
-
-  useEffect(() => {
-    if (localStorage && localStorage.getItem("adminToken")) {
-      router.push("/");
-    }
-  }, [router]);
+  const onLoginAdmin: SubmitHandler<AdminLoginInfo> = async (data) => {};
 
   const onLoginAdminError: SubmitErrorHandler<FieldError> = (error) => {
     if (error.message) {

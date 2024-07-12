@@ -1,4 +1,4 @@
-const BASE_API = process.env.BACKEND_URL || "http://localhost:8000";
+const BASE_API = process.env.BACKEND_URL || "http://localhost:3000/api";
 
 export const EndPoints = {
   base: BASE_API,
