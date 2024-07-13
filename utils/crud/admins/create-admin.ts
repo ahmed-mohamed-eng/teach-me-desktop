@@ -29,6 +29,7 @@ export async function createNewAdmin(
           lastName: data.lastName,
           nationalID: data.nationalID,
           username: data.username,
+          centersId: data.centersId,
         }
       ),
       {

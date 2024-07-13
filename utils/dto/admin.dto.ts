@@ -17,5 +17,7 @@ export interface CreateAdminDto {
 
   permissionsId?: string;
 
-  creatorAdminID?: string;
+  creatorAdminId?: string;
+
+  centersId: string[];
 }

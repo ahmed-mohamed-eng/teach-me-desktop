@@ -1,5 +1,5 @@
 /**The basic permissions each node have in our system */
-type CRUDPermissions = "READ" | "CREATE" | "UPDATE" | "DELETE";
+export type CRUDPermissions = "READ" | "CREATE" | "UPDATE" | "DELETE" | "ALL";
 
 export default interface PermissionsDto {
   id?: string;
