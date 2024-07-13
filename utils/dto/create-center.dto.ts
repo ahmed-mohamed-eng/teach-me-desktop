@@ -12,4 +12,10 @@ export interface CreateCenterDto {
   teachersIDs: string[];
   sessionsIDs: string[];
   attachmentsIDs: string[];
+
+  // Available Time.
+  dayFrom: string;
+  dayTo: string;
+  timeFrom: string;
+  timeTo: string;
 }

@@ -8,8 +8,9 @@ import TextInput from "./TextInput";
 import { CreateAdminDto } from "@/utils/dto/admin.dto";
 import { getAdminInfo } from "@/utils/functions/getAdminInfo";
 import { createNewCenter } from "@/utils/crud/centers/create-center";
+
 import MultiSelectAdmins from "@/components/shared/MultiSelectAdmins";
-import DatePicker from "@/components/shared/DatePicker";
+import AvailableDate, { DateInfo } from "./AvailableDate";
 
 export interface CenterInfo {
   name: string;
@@ -22,7 +23,7 @@ const CreateForm = () => {
   const [location, setLocation] = useState<[number, number]>();
   const [admin, setAdmin] = useState<CreateAdminDto>();
   const [selectAdminsIDs, setSelectAdminsIDs] = useState<string[]>([]);
-  const [selectedDate, setSelectedDate] = useState<string>();
+  const [selectedDate, setSelectedDate] = useState<DateInfo>();
 
   useEffect(() => {
     const adminInfo = getAdminInfo();
@@ -62,6 +63,13 @@ const CreateForm = () => {
       return;
     }
 
+    if (!selectedDate) {
+      toast.error("No Available Date Is Selected You Must Select A Date");
+      return;
+    }
+
+    const { days, time } = selectedDate;
+
     await createNewCenter({
       name: data.name,
       centerImages: data.images,
@@ -74,6 +82,10 @@ const CreateForm = () => {
       studentsIDs: [],
       teachersIDs: [],
       attachmentsIDs: [],
+      dayFrom: days.from,
+      dayTo: days.to,
+      timeFrom: time.from,
+      timeTo: time.to,
     });
   };
 
@@ -124,11 +136,7 @@ const CreateForm = () => {
 
         <MultiSelectAdmins setIDs={setSelectAdminsIDs} IDs={selectAdminsIDs} />
 
-        <div className="flex flex-col space-y-3">
-          <p className="text-lg">Select Availability Date</p>
-
-          <DatePicker date={selectedDate} onDateChange={setSelectedDate} />
-        </div>
+        <AvailableDate onSelectedDate={setSelectedDate} />
       </div>
       <div className="w-full flex flex-col items-center justify-start space-y-5 pb-5">
         <button
