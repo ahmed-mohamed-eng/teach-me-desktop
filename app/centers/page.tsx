@@ -50,6 +50,7 @@ const CentersPage = () => {
               name: faker.person.fullName(),
               password: faker.internet.password(),
               _id: faker.internet.ipv6(),
+              centersId: [faker.string.uuid()],
             },
             location: [faker.location.latitude(), faker.location.longitude()],
             name: faker.person.fullName(),

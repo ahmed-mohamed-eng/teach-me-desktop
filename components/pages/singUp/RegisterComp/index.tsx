@@ -50,6 +50,7 @@ const RegisterComp = () => {
         lastName: data.lastName,
         nationalID: data.nationalID,
         username: data.username,
+        centersId: []
       });
 
       console.log({ admin });
