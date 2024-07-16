@@ -3,10 +3,10 @@ export interface CreateHallDto {
   name: string;
   capacity: number;
   /*** The available time of the day */
-  availableTime: [Date, Date];
+  availableTime: [string, string];
   /*** The available days of the week */
-  availableDate: [Date, Date];
+  availableDate: [string, string];
 
-  centerID: string;
+  centerId: string;
   creatorAdminID: string;
 }
