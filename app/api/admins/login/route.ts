@@ -1,17 +1,19 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
 import { AdminLoginInfo } from "@/components/pages/login/LoginComp";
 
 import { sign } from "jsonwebtoken";
 
-export async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { method, body } = req;
-
-  console.log({ method, body });
+export async function POST(req: NextRequest) {
+  const body = await req.json();
 
   const { password, usernameOrEmail } = body as AdminLoginInfo;
 
-  console.log({ password, usernameOrEmail });
+  const token = sign({ password, usernameOrEmail }, "some-random-key");
 
-  res.status(201).send(sign({ password, usernameOrEmail }, "some-random-key"));
+  const res = NextResponse.next();
+
+  res.cookies.set("token", token);
+
+  return res;
 }
