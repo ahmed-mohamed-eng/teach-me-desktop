@@ -2,13 +2,13 @@
 
 export interface CreateSessionDto {
   _id?: string;
-  date: Date;
-  time: [Date, Date];
+  date: string;
+  time: [string, string];
   title?: string;
 
-  hallID: string;
-  centerID: string;
-  teacherID: string;
-  studentsIDs?: string[];
-  attachmentsIDs?: string[];
+  hallId: string;
+  centerId: string;
+  teacherId: string;
+  studentsIds?: string[];
+  attachmentsIds?: string[];
 }
