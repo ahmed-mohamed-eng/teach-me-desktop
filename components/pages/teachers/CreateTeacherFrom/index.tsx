@@ -1,21 +1,14 @@
-"use client";
+"user client";
 
-import { useState } from "react";
-import { toast } from "react-toastify";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-import { AdminType } from "@/utils/enums/admin-type.enum";
 
 import TextInput from "@/components/shared/TextInput";
 
-import PermissionsSelection, { PermissionResult } from "./PermissionsSelection";
-
-type FormAdminData = {
+type FormTeacherDate = {
   firstName: string;
   image: File;
   email: string;
   password: string;
-  adminType: AdminType;
   confirmPassword: string;
 
   lastName?: string;
@@ -23,24 +16,14 @@ type FormAdminData = {
   username?: string;
 };
 
-type SelectedPerms = Map<string, PermissionResult>;
-
-const CreateAdminForm = () => {
+const CreateTeacherFrom = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormAdminData>();
+  } = useForm<FormTeacherDate>();
 
-  const [selectedPermissions, setSelectedPermissions] =
-    useState<SelectedPerms>();
-
-  const onSubmit: SubmitHandler<FormAdminData> = async (data) => {
-    if (!selectedPermissions || selectedPermissions.size <= 0) {
-      toast.error("Permissions are required for creating Admins");
-      return;
-    }
-  };
+  const onSubmit: SubmitHandler<FormTeacherDate> = async (data) => {};
 
   return (
     <form
@@ -78,7 +61,6 @@ const CreateAdminForm = () => {
           htmlName="email"
           registerFunc={register}
           title="Email"
-          type="email"
           errors={errors}
           registerOptions={{
             required: true,
@@ -104,7 +86,6 @@ const CreateAdminForm = () => {
           htmlName="password"
           registerFunc={register}
           title="Password"
-          type="password"
           errors={errors}
           registerOptions={{
             required: true,
@@ -117,7 +98,6 @@ const CreateAdminForm = () => {
           htmlName="confirmPassword"
           registerFunc={register}
           title="Password"
-          type="password"
           errors={errors}
           registerOptions={{
             required: true,
@@ -152,23 +132,6 @@ const CreateAdminForm = () => {
         />
       </div>
 
-      <div className="col-span-6 flex flex-col space-y-3 w-full">
-        <label htmlFor="adminType">Admin Type</label>
-        <select
-          id="adminType"
-          {...register("adminType", {
-            required: true,
-          })}
-          defaultValue=""
-        >
-          <option value="">Select Admin Type</option>
-          <option value={AdminType.CenterOwner}>Co-Owner</option>
-          <option value={AdminType.SuperAdmin}>Super Admin</option>
-          <option value={AdminType.Admin}>Admin</option>
-        </select>
-      </div>
-
-      <PermissionsSelection onResultPermissions={setSelectedPermissions} />
       <button
         type="submit"
         className="bg-orange-500 border border-white rounded-md px-8 py-4 place-self-center"
@@ -179,4 +142,4 @@ const CreateAdminForm = () => {
   );
 };
 
-export default CreateAdminForm;
+export default CreateTeacherFrom;
