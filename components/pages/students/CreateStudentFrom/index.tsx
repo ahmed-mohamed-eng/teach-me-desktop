@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import TextInput from "@/components/shared/TextInput";
 
-type FormTeacherDate = {
+type FormStudentDate = {
   firstName: string;
   image: File;
   email: string;
@@ -16,14 +16,14 @@ type FormTeacherDate = {
   username?: string;
 };
 
-const CreateTeacherFrom = () => {
+const CreateStudentFrom = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormTeacherDate>();
+  } = useForm<FormStudentDate>();
 
-  const onSubmit: SubmitHandler<FormTeacherDate> = async (data) => {};
+  const onSubmit: SubmitHandler<FormStudentDate> = async (data) => {};
 
   return (
     <form
@@ -109,6 +109,18 @@ const CreateTeacherFrom = () => {
 
       <div className="col-span-6 flex flex-col space-y-3 w-full">
         <TextInput
+          htmlName="nationalId"
+          registerFunc={register}
+          title="National ID"
+          errors={errors}
+          registerOptions={{
+            required: false,
+          }}
+        />
+      </div>
+
+      <div className="col-span-6 flex flex-col space-y-3 w-full">
+        <TextInput
           htmlName="image"
           registerFunc={register}
           title="Personal Image"
@@ -130,4 +142,4 @@ const CreateTeacherFrom = () => {
   );
 };
 
-export default CreateTeacherFrom;
+export default CreateStudentFrom;
