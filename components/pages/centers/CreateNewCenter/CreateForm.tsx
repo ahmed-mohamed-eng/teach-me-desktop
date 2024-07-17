@@ -143,7 +143,7 @@ const CreateForm = () => {
           className="rounded bg-amber-400 text-gray-900 px-10 py-3 text-3xl font-cairo font-black"
           type="submit"
         >
-          Create New
+          Create New Center
         </button>
       </div>
     </form>
