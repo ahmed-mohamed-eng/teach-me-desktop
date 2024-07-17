@@ -12,6 +12,8 @@ export interface StudentDto {
   email: string;
   password: string;
   payment?: Payment;
+  avatarPath?: string;
+  name?: string;
   sessionsIDs?: string[];
   teachersIDs?: string[];
   centersIDs?: string[];

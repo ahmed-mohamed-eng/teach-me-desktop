@@ -5,10 +5,15 @@ import BackButton from "@/components/shared/BackButton";
 
 import "react-tooltip/dist/react-tooltip.css";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+export const revalidate = 3600; // revalidate the data at most every hour
+
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="w-full bg-orange-500 flex min-h-screen flex-col items-start justify-start p-5 space-y-5">
-      <Header title="Single Center Page" />
+      <Header title="Center Page" />
       {children}
       <BackButton linkTo="/centers" />
     </main>

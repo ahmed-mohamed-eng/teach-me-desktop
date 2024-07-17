@@ -1,6 +1,6 @@
 import Header from "@/components/pages/home/Header";
-import CreateNewCenter from "@/components/pages/centers/CreateNewCenter";
 import BackButton from "@/components/shared/BackButton";
+import CreateNewCenter from "@/components/pages/centers/CreateNewCenter";
 
 const CreatePage = () => {
   return (
