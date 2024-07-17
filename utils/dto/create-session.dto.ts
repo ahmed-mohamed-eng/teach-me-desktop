@@ -6,6 +6,8 @@ export interface CreateSessionDto {
   time: [string, string];
   title?: string;
 
+  name?: string;
+
   hallId: string;
   centerId: string;
   teacherId: string;

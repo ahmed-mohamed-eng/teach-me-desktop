@@ -1,44 +1,38 @@
 "user client";
 
-import { useState } from "react";
 import useSWR from "swr";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import TextInput from "@/components/shared/TextInput";
+
 import { CreateHallDto } from "@/utils/dto/create-hall.dto";
-import DatePicker from "@/components/shared/DatePicker";
 import { CreateCenterDto } from "@/utils/dto/create-center.dto";
 import { CreateTeacherDto } from "@/utils/dto/create-teacher.dto";
-import { StudentDto } from "@/utils/dto/students.dto";
-import { CreateAttachmentDto } from "@/utils/dto/attachment.dto";
+import { CreateSessionDto } from "@/utils/dto/create-session.dto";
 
-type FormSessionData = {
-  title?: string;
-
+type FormAttachmentData = {
   hallId: string;
   centerId: string;
+  sessionId: string;
   teacherId: string;
 
-  studentsIds?: string[];
-  attachmentsIds?: string[];
+  file: File;
+  name: string;
 };
 
-const CreateSessionFrom = () => {
+const CreateAttachmentFrom = () => {
   const { data: myHalls } = useSWR<CreateHallDto[]>("/halls");
   const { data: myCenters } = useSWR<CreateCenterDto[]>("/centers");
   const { data: myTeachers } = useSWR<CreateTeacherDto[]>("/teachers");
-  const { data: myStudents } = useSWR<StudentDto[]>("/students");
-  const { data: myAttachments } = useSWR<CreateAttachmentDto[]>("/attachments");
-
-  const [date, setDate] = useState<string>();
+  const { data: mySessions } = useSWR<CreateSessionDto[]>("/sessions");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormSessionData>();
+  } = useForm<FormAttachmentData>();
 
-  const onSubmit: SubmitHandler<FormSessionData> = async (data) => {};
+  const onSubmit: SubmitHandler<FormAttachmentData> = async (data) => {};
 
   return (
     <form
@@ -47,19 +41,27 @@ const CreateSessionFrom = () => {
     >
       <div className="col-span-6 flex flex-col space-y-3 w-full">
         <TextInput
-          htmlName="title"
+          htmlName="name"
           registerFunc={register}
-          title="Session Name"
+          title="File Name"
           errors={errors}
           registerOptions={{
-            required: false,
+            required: true,
             minLength: 2,
           }}
         />
       </div>
-
       <div className="col-span-6 flex flex-col space-y-3 w-full">
-        <DatePicker onDateChange={setDate} />
+        <TextInput
+          htmlName="file"
+          registerFunc={register}
+          title="Select File"
+          type="file"
+          errors={errors}
+          registerOptions={{
+            required: true,
+          }}
+        />
       </div>
 
       <div className="col-span-6 flex flex-col space-y-3 w-full">
@@ -110,33 +112,14 @@ const CreateSessionFrom = () => {
       <div className="col-span-6 flex flex-col space-y-3 w-full">
         <select
           defaultValue=""
-          {...register("studentsIds", {
-            required: false,
+          {...register("sessionId", {
+            required: true,
             minLength: 8,
           })}
         >
-          <option value="">Select Students</option>
-          {myStudents?.map((v) => {
-            return (
-              <option value={v._id}>
-                {v.firstName} {v.lastName}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-
-      <div className="col-span-6 flex flex-col space-y-3 w-full">
-        <select
-          defaultValue=""
-          {...register("attachmentsIds", {
-            required: false,
-            minLength: 8,
-          })}
-        >
-          <option value="">Select AttachmentsIds {"(if any)"}</option>
-          {myAttachments?.map((v) => {
-            return <option value={v._id}>{v.name}</option>;
+          <option value="">Select Session</option>
+          {mySessions?.map((v) => {
+            return <option value={v._id}>{v.name || v.date}</option>;
           })}
         </select>
       </div>
@@ -145,10 +128,10 @@ const CreateSessionFrom = () => {
         type="submit"
         className="bg-orange-500 border border-white rounded-md px-8 py-4 place-self-center"
       >
-        Create New Session
+        Create New Attachment
       </button>
     </form>
   );
 };
 
-export default CreateSessionFrom;
+export default CreateAttachmentFrom;

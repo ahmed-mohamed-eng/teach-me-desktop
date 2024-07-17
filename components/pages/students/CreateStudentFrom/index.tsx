@@ -136,7 +136,7 @@ const CreateStudentFrom = () => {
         type="submit"
         className="bg-orange-500 border border-white rounded-md px-8 py-4 place-self-center"
       >
-        Create New Admin
+        Create New Student
       </button>
     </form>
   );
