@@ -10,7 +10,7 @@ export interface CreateAdminDto {
   lastName?: string;
   username?: string;
   firstName?: string;
-  nationalID?: number;
+  nationalId?: number;
 
   tokens?: string[];
   avatarPath?: string;
