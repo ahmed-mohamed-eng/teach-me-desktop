@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import TextInput from "@/components/shared/TextInput";
 
-type FormTeacherDate = {
+type FormTeacherData = {
   firstName: string;
   image: File;
   email: string;
@@ -21,9 +21,9 @@ const CreateTeacherFrom = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormTeacherDate>();
+  } = useForm<FormTeacherData>();
 
-  const onSubmit: SubmitHandler<FormTeacherDate> = async (data) => {};
+  const onSubmit: SubmitHandler<FormTeacherData> = async (data) => {};
 
   return (
     <form
@@ -124,7 +124,7 @@ const CreateTeacherFrom = () => {
         type="submit"
         className="bg-orange-500 border border-white rounded-md px-8 py-4 place-self-center"
       >
-        Create New Admin
+        Create New Teacher
       </button>
     </form>
   );

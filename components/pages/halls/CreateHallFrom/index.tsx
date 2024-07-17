@@ -10,7 +10,7 @@ import AvailableDate, {
 } from "../../centers/CreateNewCenter/AvailableDate";
 import { CreateCenterDto } from "@/utils/dto/create-center.dto";
 
-type FormHallDate = {
+type FormHallData = {
   name: string;
   capacity: number;
   centerId: string;
@@ -24,9 +24,9 @@ const CreateHallFrom = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormHallDate>();
+  } = useForm<FormHallData>();
 
-  const onSubmit: SubmitHandler<FormHallDate> = async (data) => {};
+  const onSubmit: SubmitHandler<FormHallData> = async (data) => {};
 
   return (
     <form

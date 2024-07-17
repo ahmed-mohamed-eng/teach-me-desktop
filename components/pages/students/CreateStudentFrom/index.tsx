@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import TextInput from "@/components/shared/TextInput";
 
-type FormStudentDate = {
+type FormStudentData = {
   firstName: string;
   image: File;
   email: string;
@@ -21,9 +21,9 @@ const CreateStudentFrom = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormStudentDate>();
+  } = useForm<FormStudentData>();
 
-  const onSubmit: SubmitHandler<FormStudentDate> = async (data) => {};
+  const onSubmit: SubmitHandler<FormStudentData> = async (data) => {};
 
   return (
     <form
