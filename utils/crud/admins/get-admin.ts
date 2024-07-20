@@ -1,25 +1,19 @@
-import axios from "axios";
-
-import { EndPoints } from "@/utils/api-points";
 import { CreateAdminDto } from "@/utils/dto/admin.dto";
-import { setLocalObject } from "@/utils/local-storage/setLocalObj";
+import { AdminType } from "@/utils/enums/admin-type.enum";
+import { faker } from "@faker-js/faker";
 
-export async function getAdminInfo() {
-  const adminToken = localStorage?.getItem("adminToken");
-
-  if (!adminToken) return;
-
-  try {
-    const res = await axios.get<CreateAdminDto>(
-      EndPoints.admin.getOne(adminToken)
-    );
-
-    setLocalObject<CreateAdminDto>("adminInfo", res.data);
-
-    return res.data;
-  } catch (error: any) {
-    console.error(error.response.data);
-
-    return;
-  }
+export default async function getAdminInfo(id: string): Promise<CreateAdminDto> {
+  return {
+    adminType: AdminType.Admin,
+    centersId: [faker.string.uuid()],
+    email: faker.internet.email(),
+    name: faker.person.fullName(),
+    password: faker.internet.password(),
+    _id: faker.string.uuid(),
+    avatarPath: faker.image.avatar(),
+    creatorAdminId: faker.string.uuid(),
+    firstName: faker.person.firstName(),
+    id: faker.string.uuid(),
+    lastName: faker.person.lastName(),
+  };
 }
